@@ -9,7 +9,7 @@ from data import extract_commits_data
 @click.option('--base_path', help='Base path from which recursive search for git repos starts')
 @click.option('--start_date', help='Start date')
 @click.option('--end_date', help='End date')
-@click.option('--export_path', default="./ipbox.csv", help='Export path to which CSV is saved')
+@click.option('--export_path', default="./data/ipbox.csv", help='Export path to which CSV is saved')
 def parse(email:str, base_path: str, start_date: str, end_date: str, export_path: str) -> None:
     """Prepare basic info about work done in given timeframe"""
     logger.info(f"Parsing started with: {email=}, {base_path=}, {start_date=}, {end_date=}, {export_path=}")

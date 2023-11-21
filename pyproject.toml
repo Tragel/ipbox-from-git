@@ -10,7 +10,7 @@ requires-python = ">=3.7"
 license = "MIT"
 keywords = []
 authors = [
-  { name = "Marek Bednarek", email = "marek.bednarek.at.gmail@com" },
+  { name = "Marek Bednarek", email = "marek.bednarek.dot3@dev" },
 ]
 classifiers = [
   "Development Status :: 4 - Beta",

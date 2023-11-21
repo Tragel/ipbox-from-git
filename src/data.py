@@ -42,13 +42,17 @@ def extract_commits_data(user_email: str, start_date: str, end_date: str, base_p
             logger.info(f"Processing {repo=}, {branch.name=}")
             for commit in repo.iter_commits(branch):
                 commit_datetime = commit.committed_datetime.replace(tzinfo=pytz.UTC)
-                if commit.author.email == user_email and start_date <= commit_datetime <= end_date:
+                if user_email in commit.author.email and start_date <= commit_datetime <= end_date:
                     commit_data = collect_commit_data(commit, repo_path, branch)
+                    logger.info("adding commit")
                     data.append(commit_data)
 
 
     df = pd.DataFrame(data)
-    print(df.head)
+    try:
+        df = df.sort_values(["date", "repository_name", "branch_name"]) 
+    except:
+        import ipdb; ipdb.set_trace()
     return df
 
 
